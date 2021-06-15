@@ -29,10 +29,12 @@ Go to the **\CourseApp\courses** folder:
 
 Windows:
 ```bash
+py manage.py migrate
 py manage.py runserver
 ```
 Mac
 ```bash
+python manage.py migrate
 python manage.py runserver
 ```
 

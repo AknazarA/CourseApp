@@ -16,16 +16,11 @@ Including another URLconf
 from . import views
 from django.conf.urls import include, url
 
-
-
-
 urlpatterns = [
-    #music/
-    #url(r'^$', views.IndexView.as_view(), name='index'),
+    #courses/
+    url(r'^$', views.CourseList.as_view(), name='courses'),
 
-    url(r'^$', views.CourseList.as_view()),
-
-    url(r'^(?P<pk>[0-9]+)/$', views.CourseDetail.as_view()),
+    url(r'^(?P<pk>[0-9]+)/$', views.CourseDetail.as_view(), name='detail'),
 
 
 ]

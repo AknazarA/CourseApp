@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-
 class Category(models.Model):
 	name = models.CharField(max_length = 250)
 	imgpath = models.CharField(max_length = 1000)
@@ -19,16 +18,13 @@ class Branch(models.Model):
 
 class Contacts(models.Model):
 
-	class ContactTypes(models.IntegerChoices):
-		Phone = 1
-		E_Mail = 2
-		Facebook = 3
+	contactTypes = [(1, 'Phone'), (2, 'E Mail'), (3, 'Facebook')]
 
-	type = models.IntegerField(choices=ContactTypes.choices)
+	type = models.IntegerField(choices=contactTypes)
 	value = models.CharField(max_length=100)
 
 	def __str__(self):
-		return self.value
+		return str(self.contactTypes[self.type - 1][1]) + ': ' + self.value
 
 class Course(models.Model):
 	name = models.CharField(max_length = 250)
